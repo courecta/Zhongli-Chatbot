@@ -1,0 +1,39 @@
+{
+  "name": "zhongli-chatbot",
+  "version": "2.0.0",
+  "description": "Modern Discord chatbot powered by fine-tuned DialoGPT model for Zhongli character interactions",
+  "main": "index.js",
+  "type": "module",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint .",
+    "format": "prettier --write ."
+  },
+  "keywords": [
+    "discord-bot",
+    "chatbot",
+    "genshin-impact",
+    "zhongli",
+    "huggingface",
+    "dialogpt",
+    "ai"
+  ],
+  "author": "Zhongli Chatbot Team",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^14.14.1",
+    "express": "^4.18.2",
+    "dotenv": "^16.3.1",
+    "helmet": "^7.1.0",
+    "rate-limiter-flexible": "^5.0.3"
+  },
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "prettier": "^3.1.1"
+  }
+}

@@ -1,0 +1,27 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-added-large-files
+      - id: check-case-conflict
+      - id: check-merge-conflict
+      - id: debug-statements
+      - id: check-json
+
+  - repo: https://github.com/Yelp/detect-secrets
+    rev: v1.4.0
+    hooks:
+      - id: detect-secrets
+        args: ['--baseline', '.secrets.baseline']
+        exclude: package.lock.json
+
+  - repo: local
+    hooks:
+      - id: check-hardcoded-secrets
+        name: Check for hardcoded secrets
+        entry: bash -c 'if git diff --cached --name-only | xargs grep -l "sk-\|ghp_\|gho_\|ghu_\|ghs_\|ghr_\|@gmail\.com\|@yahoo\.com\|@hotmail\.com\|password\s*=\|token\s*=\|api_key\s*=" 2>/dev/null; then echo "❌ Potential secret detected! Commit aborted."; exit 1; fi'
+        language: system
+        pass_filenames: false
